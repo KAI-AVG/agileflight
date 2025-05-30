@@ -1,0 +1,17 @@
+_target_ : policy_model.OrigUnet_lstm
+input_mode : ${input_mode}
+image_shape : ${image_size}
+unet : 
+  out_channels : 1
+  recurrent : 1
+
+conv :
+  channels : [8,8]
+  conv_kernels : [3,3]
+  conv_paddings : [1,1]
+  pool_strides : [2,3]
+
+linear:
+  drop_p : 0.3
+  dims : [1024,128,16,2]
+  activations : ['leaky_relu','leaky_relu','leaky_relu','tanh']

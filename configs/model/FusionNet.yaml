@@ -1,0 +1,19 @@
+_target_ : policy_model.FusionNet
+rvt : [[10,5],[10,2],[10,1]]
+image_shape : ${image_size}
+batch_size : ${batch_size}
+rnn_type : null
+
+attention: 
+  k_dim : 4
+  v_dim : 4
+  num_head : 5
+
+rnn:
+  num_layers : 2
+
+linear:
+  dims : [64,2]
+  activations : ['gelu','tanh']
+
+cross_mode : "depth2dvs"

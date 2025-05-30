@@ -1,0 +1,42 @@
+defaults:
+  - _self_
+  - /model: FusionCross
+
+epochs : 150
+device : cuda
+val_freq : 10
+batch_size : 4
+lamb : 1
+lamb2 : 1e-5
+input_mode : depth
+checkpoint_path : null
+image_size : [60,90]
+
+dataset:
+  _target_ : dataloading.Data
+  data_path : data/datasets
+  dataset_name : easy_static_5_all
+  short: [0]
+  dvs_num  : 2
+  val_split : 0.2
+  event_batch : 2
+  rescale_depth : 1
+  resize_input : ${image_size}
+  keep_collisions : False
+
+loss:
+  _target_: torch.nn.MSELoss
+  reduction: 'mean'  
+
+optimizer:
+  _target_: transformers.Adafactor
+  lr: null
+  scale_parameter: true
+  relative_step: true
+  warmup_init: true
+
+
+
+
+
+

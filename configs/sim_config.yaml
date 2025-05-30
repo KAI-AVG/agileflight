@@ -1,0 +1,40 @@
+defaults:
+  - _self_
+  - /model: FusionCross
+
+
+mode : vision
+desiredVel : 5
+ob_type : static
+level : easy
+
+input_mode: "fusion"
+batch_size: 4
+checkpoint_epoch: null
+image_size : [60,90]
+
+total_num_exps: null
+target: 60
+plots: False
+exp_name: null
+experiment_num: 3
+
+evaluation:
+  timeout: 100
+  topics:
+    quad_name: "kingfisher"
+    state: "dodgeros_pilot/state"
+    obstacles: "dodgeros_pilot/groundtruth/obstacles"
+    start: "start_navigation"
+    finish: "finish_navigation"
+  bounding_box: [-5, 65, -20, 20, 0, 20]
+
+run:
+  resize_input: ${image_size}
+  data_buffer_maxlength: 1
+  quad_radius: 0.1
+  pos_thred: 0.2 #esim event threshold
+  neg_thred: 0.2 #esim event threshold
+  
+#rollouts : "rollout"
+# if you really don't want the cool plots, put this to False

@@ -1,0 +1,22 @@
+_target_ : policy_model.FusionCross2
+rvt : [[10,5],[10,2],[10,1]]
+image_shape : ${image_size}
+batch_size : ${batch_size}
+rnn_type : null
+has_state : True
+
+attention: 
+  k_dim : 4
+  v_dim : 4
+  num_head : 5
+
+rnn:
+  num_layers : 2
+
+linear:
+  dims : [64,2]
+  activations : ['gelu','tanh']
+
+linear2:
+  dims : [64,2]
+  activations : ['relu','relu']

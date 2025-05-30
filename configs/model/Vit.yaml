@@ -1,0 +1,24 @@
+_target_ : policy_model.Vit
+encoder : 
+  channel_dims : [16,32]
+  patch_sizes : [7,3]
+  strides : [4,2]
+  paddings : [3,1]
+  n_layers : [2,2]
+  reduction_ratios : [8,4]
+  num_heads : [1,2]
+  expansion_factors : [8,8]
+upsample_size : [16,24]
+upscale_factor : 2
+downsample : [24,12]
+decoder :
+  dims : [4608,512]
+lstm :
+  input_dim : 512
+  hidden_size : 128
+  num_layers : 3
+  p : 0.3
+linear :
+  dims : [64,32,2]
+  p : 0.3
+  activations : ['relu','relu','tanh']

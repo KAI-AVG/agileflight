@@ -1,0 +1,14 @@
+
+image_size : [60,90]
+
+dataset:
+  _target_ : dataloading.Data
+  data_path : data/datasets
+  dataset_name : easy_static_13_all
+  short: [0]
+  dvs_num  : 2
+  val_split : 0.2
+  event_batch : 2
+  rescale_depth : 1
+  resize_input : ${image_size}
+  keep_collisions : True

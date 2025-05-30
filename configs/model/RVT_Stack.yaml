@@ -1,0 +1,27 @@
+_target_ : policy_model.RVT_Stack
+input_mode : ${input_mode}
+image_shape : ${image_size}
+batch_size : ${batch_size}
+
+rvt_configs:
+  - - true
+    - downsample_channels: 10
+      pool_kernel_size: 5
+      pool_stride: 5
+  - - true
+    - downsample_channels: 20
+      pool_kernel_size: 2
+      pool_stride: 2
+  - - true
+    - downsample_channels: 40
+      pool_kernel_size: 1
+      pool_stride: 1
+
+conv :
+  out_channels : 10
+  kernel_size : 1
+
+linear :
+  dims : [128,2]
+  p : 0.3
+  activations : ['relu','tanh']
