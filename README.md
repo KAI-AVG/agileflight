@@ -1,4 +1,4 @@
 # agileflight
 Research on Obstacle Avoidance Algorithm for DVS-based Unmanned Aerial Vehicles
 
-This project is still in progress.
+The project is currently underway and will be open-sourced upon its full completion.
